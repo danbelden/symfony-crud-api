@@ -76,22 +76,15 @@ class Model extends EntityRepository
         ModelCriteria $criteria,
         QueryBuilder &$queryBuilder
     ) {
-        if (is_numeric($criteria->getLimit())) {
-            $queryBuilder->setMaxResults($criteria->getLimit());
-        }
+        $limit = $criteria->getLimitOrDefault();
+        $queryBuilder->setMaxResults($limit);
 
-        if (is_numeric($criteria->getOffset())) {
-            $queryBuilder->setFirstResult($criteria->getOffset());
-        }
+        $offset = $criteria->getOffsetOrDefault();
+        $queryBuilder->setFirstResult($offset);
 
         if (!empty($criteria->getOrderField())) {
-            $queryBuilder->orderBy($criteria->getOrderField());
-            if (!empty($criteria->getOrderDirection())) {
-                $queryBuilder->orderBy(
-                    $criteria->getOrderField(),
-                    $criteria->getOrderDirection()
-                );
-            }
+            $orderDirection = $criteria->getOrderDirectionOrDefault();
+            $queryBuilder->orderBy($criteria->getOrderField(), $orderDirection);
         }
 
         return $this;

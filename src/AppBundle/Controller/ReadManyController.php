@@ -71,7 +71,7 @@ class ReadManyController extends Controller
 
         $router         = $this->get('router');
         $modelsHandler  = new ModelsHandler($router);
-        $modelsDocument = $modelsHandler->toDocument($request, $models);
+        $modelsDocument = $modelsHandler->toDocument($criteria, $count, $models);
 
         $properties = array(
             'criteria'     => $criteria->toArray(),

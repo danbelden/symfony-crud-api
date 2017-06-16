@@ -4,6 +4,10 @@ namespace AppBundle\Criteria;
 
 abstract class Base
 {
+    const DEFAULT_LIMIT = 1000;
+    const DEFAULT_OFFSET = 0;
+    const DEFAULT_ORDER_DIRECTION = 'ASC';
+
     /**
      * @var int
      */
@@ -35,6 +39,18 @@ abstract class Base
     }
 
     /**
+     * Get limit (Or default if it is null)
+     *
+     * @return int
+     */
+    public function getLimitOrDefault()
+    {
+        $limit = $this->getLimit();
+
+        return $limit !== null ? $limit : $this::DEFAULT_LIMIT;
+    }
+
+    /**
      * Set limit
      *
      * @param int $limit
@@ -55,6 +71,18 @@ abstract class Base
     public function getOffset()
     {
         return $this->offset;
+    }
+
+    /**
+     * Get offset (Or default if it is null)
+     *
+     * @return int
+     */
+    public function getOffsetOrDefault()
+    {
+        $offset = $this->getOffset();
+
+        return $offset !== null ? $offset : $this::DEFAULT_OFFSET;
     }
 
     /**
@@ -101,6 +129,18 @@ abstract class Base
     public function getOrderDirection()
     {
         return $this->orderDirection;
+    }
+
+    /**
+     * Get order direction (Or default if it is null)
+     *
+     * @return string
+     */
+    public function getOrderDirectionOrDefault()
+    {
+        $orderDir = $this->getOrderDirection();
+
+        return $orderDir !== null ? $orderDir : $this::DEFAULT_ORDER_DIRECTION;
     }
 
     /**
