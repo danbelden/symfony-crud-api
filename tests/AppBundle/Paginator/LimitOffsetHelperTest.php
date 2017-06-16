@@ -27,6 +27,10 @@ class LimitOffsetHelperTest extends TestCase
 
     /**
      * @dataProvider dataProviderGetPreviousLimit
+     * @param mixed $limit
+     * @param mixed $offset
+     * @param mixed $count
+     * @param mixed $expected
      */
     public function testGetPreviousLimit($limit, $offset, $count, $expected)
     {
@@ -56,6 +60,10 @@ class LimitOffsetHelperTest extends TestCase
 
     /**
      * @dataProvider dataProviderGetPreviousOffset
+     * @param mixed $limit
+     * @param mixed $offset
+     * @param mixed $count
+     * @param mixed $expected
      */
     public function testGetPreviousOffset($limit, $offset, $count, $expected)
     {
@@ -96,6 +104,10 @@ class LimitOffsetHelperTest extends TestCase
 
     /**
      * @dataProvider dataProviderGetNextLimit
+     * @param mixed $limit
+     * @param mixed $offset
+     * @param mixed $count
+     * @param mixed $expected
      */
     public function testGetNextLimit($limit, $offset, $count, $expected)
     {
@@ -136,6 +148,10 @@ class LimitOffsetHelperTest extends TestCase
 
     /**
      * @dataProvider dataProviderGetNextOffset
+     * @param mixed $limit
+     * @param mixed $offset
+     * @param mixed $count
+     * @param mixed $expected
      */
     public function testGetNextOffset($limit, $offset, $count, $expected)
     {
