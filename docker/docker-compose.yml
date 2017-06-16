@@ -21,6 +21,11 @@ services:
     image: danbelden/ubuntu-mysql57
     ports:
       - "3306:3306"
+    environment:
+        - MYSQL_USER=symfony
+        - MYSQL_PASSWORD=password
+        - MYSQL_DATABASE=symfony
+        - MYSQL_INITDB_SKIP_TZINFO=true
     networks:
       test:
         ipv4_address: 10.0.1.3

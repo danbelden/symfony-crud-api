@@ -1,0 +1,212 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Model API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/models": {
+            "get": {
+                "tags": [
+                    "Models"
+                ],
+                "summary": "List models",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Name of model to retrieve",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Number of models to read",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "Offset to read first result from",
+                        "required": false,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An example resource"
+                    },
+                    "400": {
+                        "description": "Invalid request"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Models"
+                ],
+                "summary": "Create a model",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Model",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Create"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Model created"
+                    },
+                    "400": {
+                        "description": "Invalid request"
+                    }
+                }
+            }
+        },
+        "/models/{uuid}": {
+            "get": {
+                "tags": [
+                    "Models"
+                ],
+                "summary": "Fetch a model",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "description": "Model uuid to fetch",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Model found"
+                    },
+                    "404": {
+                        "description": "Model not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Models"
+                ],
+                "summary": "Update a model",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "description": "Model uuid to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Model",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Update"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Model updated"
+                    },
+                    "400": {
+                        "description": "Invalid request"
+                    },
+                    "404": {
+                        "description": "Model not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Models"
+                ],
+                "summary": "Delete a model",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "description": "Model uuid to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Model deleted"
+                    },
+                    "404": {
+                        "description": "Model not found"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Create": {
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "ReadMany": {
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "limit": {
+                    "type": "integer"
+                },
+                "offset": {
+                    "type": "integer"
+                },
+                "sortField": {
+                    "type": "string"
+                },
+                "sortDirection": {
+                    "type": "string"
+                }
+            }
+        },
+        "Update": {
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

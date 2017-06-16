@@ -8,4 +8,5 @@ php:
 install:
   - composer install
 script:
+  - vendor/bin/php-cs-fixer fix --using-cache=no --config=.php_cs.dist --verbose --diff --dry-run --stop-on-violation
   - vendor/bin/phpunit

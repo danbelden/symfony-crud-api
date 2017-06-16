@@ -1,0 +1,28 @@
+services:
+
+    create_model_criteria_param_converter:
+        class: AppBundle\ParamConverter\Criteria
+        tags:
+            - { name: request.param_converter, priority: -5, converter: create_model_criteria_converter }
+        arguments:
+            - '@form.factory'
+            - '@model_criteria_builder'
+
+    create_model_param_converter:
+        class: AppBundle\ParamConverter\Create
+        tags:
+            - { name: request.param_converter, priority: -10, converter: create_model_converter }
+        arguments:
+            - '@form.factory'
+            - '@doctrine'
+
+    update_model_param_converter:
+        class: AppBundle\ParamConverter\Update
+        tags:
+            - { name: request.param_converter, priority: -15, converter: update_model_converter }
+        arguments:
+            - '@form.factory'
+            - '@doctrine'
+
+    model_criteria_builder:
+        class: AppBundle\Criteria\ModelBuilder
