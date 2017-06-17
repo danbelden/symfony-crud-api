@@ -59,8 +59,7 @@ class ReadManyController extends Controller
      */
     public function readManyAction(ModelCriteria $criteria, Request $request)
     {
-        $modelsRepository = $this->getDoctrine()
-            ->getManager()
+        $modelsRepository = $this->get('doctrine.orm.entity_manager')
             ->getRepository(Model::class);
 
         $sTime  = microtime(true);

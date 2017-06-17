@@ -1,5 +1,12 @@
 services:
 
+    read_model_param_converter:
+        class: AppBundle\ParamConverter\Read
+        tags:
+            - { name: request.param_converter, priority: -1, converter: read_model_converter }
+        arguments:
+            - '@doctrine'
+
     create_model_criteria_param_converter:
         class: AppBundle\ParamConverter\Criteria
         tags:

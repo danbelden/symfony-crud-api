@@ -35,7 +35,7 @@ class ModelsHandler
      * @param array $models
      * @return Document
      */
-    public function toDocument(ModelCriteria $criteria, int $count, array $models)
+    public function toDocument(ModelCriteria $criteria, $count, array $models)
     {
         $document = new Document();
         $document->setClass(array('models', 'collection'));
@@ -103,7 +103,7 @@ class ModelsHandler
      * @param int $count
      * @return array
      */
-    private function getLinks(ModelCriteria $criteria, int $count)
+    private function getLinks(ModelCriteria $criteria, $count)
     {
         $links = array();
 
@@ -153,7 +153,7 @@ class ModelsHandler
      * @param int $count
      * @return Link
      */
-    private function getPrevLink(ModelCriteria $criteria, int $count)
+    private function getPrevLink(ModelCriteria $criteria, $count)
     {
         $limit = $criteria->getLimitOrDefault();
         $offset = $criteria->getOffsetOrDefault();
@@ -189,7 +189,7 @@ class ModelsHandler
      * @param int $count
      * @return Link
      */
-    private function getNextLink(ModelCriteria $criteria, int $count)
+    private function getNextLink(ModelCriteria $criteria, $count)
     {
         $limit = $criteria->getLimitOrDefault();
         $offset = $criteria->getOffsetOrDefault();

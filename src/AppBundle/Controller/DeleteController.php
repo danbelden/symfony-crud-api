@@ -38,11 +38,11 @@ class DeleteController extends Controller
      * )
      * @Route("/models/{uuid}", name="delete_model")
      * @Method({"DELETE"})
-     * @ParamConverter("model", class="AppBundle:Model")
+     * @ParamConverter("model", class="AppBundle:Model", converter="read_model_converter")
      */
     public function deleteAction(Model $model)
     {
-        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager = $this->get('doctrine.orm.entity_manager');
         $entityManager->remove($model);
         $entityManager->flush();
 

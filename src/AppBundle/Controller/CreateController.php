@@ -43,7 +43,7 @@ class CreateController extends Controller
      */
     public function createAction(Model $model)
     {
-        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager = $this->get('doctrine.orm.entity_manager');
         $entityManager->persist($model);
         $entityManager->flush();
 
@@ -55,6 +55,7 @@ class CreateController extends Controller
         $sirenJson    = $sirenHandler->toJson($modelDocument);
 
         $jsonResponse = new JsonResponse();
+        $jsonResponse->setStatusCode(201);
         $jsonResponse->setContent($sirenJson);
 
         return $jsonResponse;
