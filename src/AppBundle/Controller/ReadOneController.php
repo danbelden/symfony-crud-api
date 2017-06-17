@@ -37,7 +37,7 @@ class ReadOneController extends Controller
      *   )
      * )
      * @Method({"GET"})
-     * @ParamConverter("model", class="AppBundle:Model")
+     * @ParamConverter("model", class="AppBundle:Model", converter="read_model_converter")
      * @Route("/models/{uuid}", name="read_one_model")
      * @param Model $model
      */

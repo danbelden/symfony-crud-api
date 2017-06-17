@@ -54,7 +54,7 @@ class UpdateController extends Controller
      */
     public function updateAction(Model $model)
     {
-        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager = $this->get('doctrine.orm.entity_manager');
         $entityManager->persist($model);
         $entityManager->flush();
 

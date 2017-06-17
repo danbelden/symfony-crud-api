@@ -56,7 +56,7 @@ class Update extends CreateParamConverter implements ParamConverterInterface
      * @return Model
      * @throws NotFoundHttpException
      */
-    private function getModelForUpdate(Request $request)
+    protected function getModelForUpdate(Request $request)
     {
         $uuid = $request->attributes->get('uuid');
 

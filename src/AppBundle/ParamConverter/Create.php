@@ -31,8 +31,8 @@ class Create extends BaseParamConverter implements ParamConverterInterface
         FormFactory $formFactory,
         ManagerRegistry $registry = null
     ) {
-        $this->registry    = $registry;
         $this->formFactory = $formFactory;
+        $this->registry    = $registry;
     }
 
     /**

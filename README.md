@@ -3,18 +3,20 @@ danbelden/symfony-crud-api
 
 [![Build Status](https://travis-ci.org/danbelden/symfony-crud-api.svg?branch=master)](https://travis-ci.org/danbelden/symfony-crud-api)
 
-A skeleton Symfony3 / PHP  application, for providing a restful service responsible for a single entity.
+A skeleton Symfony3 / PHP  application, for providing a restful data storage abstraction service responsible for a single object ONLY!
 
 # Requirements
 
-This PHP application requires PHP version 5.5 or greater, although may work in even weaker versions with little moddifications.
-- This minimum 5.5 requirement is mainly due to the Symfony 3.2 framework
+PHP >= 5.6
+MySQL >= 5.6
+
+# Installation
+
+This project is designed to be forked/extended to provide an internal data service, so has no installation instructions.
 
 # Usage
 
-This project is not designed for production usage; instead this is a skeleton application and should be forked.
-
-You should modify the entity/model to your requirements, but the general application structure should remain the same (REST)
-- This is a demonstrative microservice (data layer) skeleton application
+You should fork and modify the entity/model/naming to your requirements...
+- The the general application structure should remain relatively the same (REST)
 
 Enjoy.
