@@ -4,9 +4,9 @@ namespace Tests\AppBundle\Controller;
 
 use Doctrine\ORM\EntityManager;
 use Ramsey\Uuid\Uuid;
+use Siren\Handler;
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Siren\Handler;
 use Tests\AppBundle\Mocks\MockReadParamConverter;
 
 class DeleteControllerTest extends WebTestCase

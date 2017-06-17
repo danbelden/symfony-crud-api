@@ -5,9 +5,9 @@ namespace Tests\AppBundle\Controller;
 use AppBundle\Entity\Model;
 use AppBundle\Repository\Model as ModelRepository;
 use Doctrine\ORM\EntityManager;
+use Siren\Handler;
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Siren\Handler;
 
 class ReadManyControllerTest extends WebTestCase
 {
@@ -40,7 +40,7 @@ class ReadManyControllerTest extends WebTestCase
             ->setName('test');
 
         $mockRepository->method('findByCriteria')
-            ->willReturn([$mockModelOne, $mockModelTwo, $mockModelThree]);
+            ->willReturn(array($mockModelOne, $mockModelTwo, $mockModelThree));
 
         $mockEntityManager = $this->getMockBuilder(EntityManager::class)
             ->disableOriginalConstructor()
@@ -85,7 +85,7 @@ class ReadManyControllerTest extends WebTestCase
 
         $entities = $document->getEntities();
         $this->assertCount(3, $entities);
-        foreach($entities as $entity) {
+        foreach ($entities as $entity) {
             $properties = $entity->getProperties();
             $this->assertSame('test', $properties['name']);
 

@@ -3,9 +3,9 @@
 namespace Tests\AppBundle\Controller;
 
 use Doctrine\ORM\EntityManager;
+use Siren\Handler;
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Siren\Handler;
 
 class CreateControllerTest extends WebTestCase
 {
