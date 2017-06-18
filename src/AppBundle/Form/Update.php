@@ -11,10 +11,10 @@ class Update extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name', TextType::class, array(
-            'constraints' => array(
-                new NotBlank(array('message' => 'Model `name` must not be blank')),
-            )
-        ));
+        $builder->add('name', TextType::class, [
+            'constraints' => [
+                new NotBlank(['message' => 'Model `name` must not be blank']),
+            ]
+        ]);
     }
 }

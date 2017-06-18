@@ -49,9 +49,9 @@ class Create extends BaseParamConverter implements ParamConverterInterface
         $form = $this->formFactory->create(
             CreateForm::class,
             $this->getNewModel(),
-            array(
+            [
                 'csrf_protection' => false
-            )
+            ]
         );
         $form->submit($decodedRequestBody);
 

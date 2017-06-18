@@ -40,7 +40,7 @@ class ReadManyControllerTest extends WebTestCase
             ->setName('test');
 
         $mockRepository->method('findByCriteria')
-            ->willReturn(array($mockModelOne, $mockModelTwo, $mockModelThree));
+            ->willReturn([$mockModelOne, $mockModelTwo, $mockModelThree]);
 
         $mockEntityManager = $this->getMockBuilder(EntityManager::class)
             ->disableOriginalConstructor()

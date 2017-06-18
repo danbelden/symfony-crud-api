@@ -72,16 +72,16 @@ class ReadManyController extends Controller
         $modelsHandler  = new ModelsHandler($router);
         $modelsDocument = $modelsHandler->toDocument($criteria, $count, $models);
 
-        $properties = array(
+        $properties = [
             'criteria'     => $criteria->toArray(),
             'totalResults' => $count,
             'secondsTaken' => (float) number_format($tTime, 2)
-        );
+        ];
         $modelsDocument->setProperties($properties);
 
         $documentArray = $modelsDocument->toArray();
         if (empty($documentArray['entities'])) {
-            $documentArray['entities'] = array();
+            $documentArray['entities'] = [];
         }
 
         $jsonResponse = new JsonResponse();

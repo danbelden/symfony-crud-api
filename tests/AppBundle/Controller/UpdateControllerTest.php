@@ -36,9 +36,9 @@ class UpdateControllerTest extends WebTestCase
     public function testUpdateEndpointWithAValidRequestBody()
     {
         $uuid = Uuid::uuid4();
-        $content = json_encode(array('name' => 'new'));
+        $content = json_encode(['name' => 'new']);
         $url = '/models/' . $uuid->toString();
-        $this->client->request('POST', $url, array(), array(), array(), $content);
+        $this->client->request('POST', $url, [], [], [], $content);
 
         $response = $this->client->getResponse();
 
@@ -71,9 +71,9 @@ class UpdateControllerTest extends WebTestCase
 
     public function testUpdateEndpointWithAnInvalidUuid()
     {
-        $content = json_encode(array('name' => 'test'));
+        $content = json_encode(['name' => 'test']);
         $url = '/models/test';
-        $this->client->request('POST', $url, array(), array(), array(), $content);
+        $this->client->request('POST', $url, [], [], [], $content);
 
         $response = $this->client->getResponse();
         $statusCode = $response->getStatusCode();
@@ -84,9 +84,9 @@ class UpdateControllerTest extends WebTestCase
     public function testUpdateEndpointWithAnInvalidRequestBody()
     {
         $uuid = Uuid::uuid4();
-        $content = json_encode(array('name' => ''));
+        $content = json_encode(['name' => '']);
         $url = '/models/' . $uuid->toString();
-        $this->client->request('POST', $url, array(), array(), array(), $content);
+        $this->client->request('POST', $url, [], [], [], $content);
 
         $response = $this->client->getResponse();
         $statusCode = $response->getStatusCode();

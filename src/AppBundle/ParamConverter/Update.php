@@ -28,9 +28,9 @@ class Update extends CreateParamConverter implements ParamConverterInterface
         $form = $this->formFactory->create(
             UpdateForm::class,
             $model,
-            array(
+            [
                 'csrf_protection' => false
-            )
+            ]
         );
 
         // [Hack] Remove form fields that are null to enable partial updates

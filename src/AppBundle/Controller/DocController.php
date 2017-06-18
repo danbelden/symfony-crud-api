@@ -33,7 +33,7 @@ class DocController extends Controller
 
         return $this->render(
             'AppBundle::doc.html.twig',
-            array('specFilePath' => $swaggerFile)
+            ['specFilePath' => $swaggerFile]
         );
     }
 }

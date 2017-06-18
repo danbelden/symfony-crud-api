@@ -28,8 +28,8 @@ class CreateControllerTest extends WebTestCase
 
     public function testCreateEndpointWithAValidRequestBody()
     {
-        $content = json_encode(array('name' => 'test'));
-        $this->client->request('POST', '/models', array(), array(), array(), $content);
+        $content = json_encode(['name' => 'test']);
+        $this->client->request('POST', '/models', [], [], [], $content);
 
         $response = $this->client->getResponse();
 
@@ -62,8 +62,8 @@ class CreateControllerTest extends WebTestCase
 
     public function testCreateEndpointWithAnInvalidRequestBody()
     {
-        $content = json_encode(array('name' => ''));
-        $this->client->request('POST', '/models', array(), array(), array(), $content);
+        $content = json_encode(['name' => '']);
+        $this->client->request('POST', '/models', [], [], [], $content);
 
         $response = $this->client->getResponse();
         $statusCode = $response->getStatusCode();

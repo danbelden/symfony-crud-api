@@ -63,9 +63,9 @@ class Criteria implements ParamConverterInterface
         $form = $this->formFactory->create(
             CriteriaForm::class,
             null,
-            array(
+            [
                 'csrf_protection' => false
-            )
+            ]
         );
 
         // [Hack] Remove form fields that are null to enable partial updates

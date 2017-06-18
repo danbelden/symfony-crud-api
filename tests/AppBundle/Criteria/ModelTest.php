@@ -104,4 +104,41 @@ class ModelTest extends TestCase
         $this->assertNotNull($orderDirOrDefault);
         $this->assertSame($criteria::DEFAULT_ORDER_DIRECTION, $orderDirOrDefault);
     }
+
+    public function testPartialToArray()
+    {
+        $criteria = new ModelCriteria();
+        $criteria->setName('test');
+
+        $dataArray = $criteria->toArray();
+        $this->assertArrayHasKey('name', $dataArray);
+        $this->assertSame('test', $dataArray['name']);
+
+        unset($dataArray['name']);
+        $this->assertEmpty($dataArray);
+    }
+
+    public function testFullToArray()
+    {
+        $criteria = new ModelCriteria();
+        $criteria->setName('test')
+            ->setLimit(1)
+            ->setOffset(1)
+            ->setOrderField('name')
+            ->setOrderDirection('ASC');
+
+        $dataArray = $criteria->toArray();
+        $this->assertSame('test', $dataArray['name']);
+        $this->assertSame(1, $dataArray['limit']);
+        $this->assertSame(1, $dataArray['offset']);
+        $this->assertSame('name', $dataArray['orderField']);
+        $this->assertSame('ASC', $dataArray['orderDirection']);
+
+        unset($dataArray['name'], $dataArray['limit'], $dataArray['offset'], $dataArray['orderField'], $dataArray['orderDirection']);
+
+
+
+
+        $this->assertEmpty($dataArray);
+    }
 }

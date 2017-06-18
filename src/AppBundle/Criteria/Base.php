@@ -58,7 +58,7 @@ abstract class Base
      */
     public function setLimit($limit)
     {
-        $this->limit = $limit;
+        $this->limit = (int) $limit;
 
         return $this;
     }
@@ -93,7 +93,7 @@ abstract class Base
      */
     public function setOffset($offset)
     {
-        $this->offset = $offset;
+        $this->offset = (int) $offset;
 
         return $this;
     }

@@ -33,23 +33,23 @@ class ModelHandler
     public function toDocument(Model $model)
     {
         $document = new Document();
-        $document->setClass(array('model'));
+        $document->setClass(['model']);
 
-        $document->setProperties(array(
+        $document->setProperties([
             'uuid' => $model->getUuId(),
             'name' => $model->getName()
-        ));
+        ]);
 
         $href = $this->router->generate(
             'read_one_model',
-            array('uuid' => $model->getUuId()),
+            ['uuid' => $model->getUuId()],
             Router::ABSOLUTE_URL
         );
 
         $link = new Link();
         $link->setHref($href);
-        $link->setRel(array('self', 'model'));
-        $document->setLinks(array($link));
+        $link->setRel(['self', 'model']);
+        $document->setLinks([$link]);
 
         return $document;
     }

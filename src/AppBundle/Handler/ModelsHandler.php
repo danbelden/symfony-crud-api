@@ -38,7 +38,7 @@ class ModelsHandler
     public function toDocument(ModelCriteria $criteria, $count, array $models)
     {
         $document = new Document();
-        $document->setClass(array('models', 'collection'));
+        $document->setClass(['models', 'collection']);
 
         $entities = $this->getEntities($models);
         $document->setEntities($entities);
@@ -57,7 +57,7 @@ class ModelsHandler
      */
     private function getEntities(array $models)
     {
-        $entities = array();
+        $entities = [];
 
         foreach ($models as $model) {
             assert($model instanceof Model);
@@ -76,22 +76,22 @@ class ModelsHandler
     private function getEntity(Model $model)
     {
         $entity = new Entity();
-        $entity->setClass(array('model'));
-        $entity->setProperties(array(
+        $entity->setClass(['model']);
+        $entity->setProperties([
             'uuid' => $model->getUuId(),
             'name' => $model->getName()
-        ));
+        ]);
 
         $href = $this->router->generate(
             'read_one_model',
-            array('uuid' => $model->getUuId()),
+            ['uuid' => $model->getUuId()],
             Router::ABSOLUTE_URL
         );
 
         $link = new Link();
         $link->setHref($href);
-        $link->setRel(array('self', 'model'));
-        $entity->setLinks(array($link));
+        $link->setRel(['self', 'model']);
+        $entity->setLinks([$link]);
 
         return $entity;
     }
@@ -105,7 +105,7 @@ class ModelsHandler
      */
     private function getLinks(ModelCriteria $criteria, $count)
     {
-        $links = array();
+        $links = [];
 
         $links[] = $this->getSelfLink($criteria);
 
@@ -141,7 +141,7 @@ class ModelsHandler
 
         $link = new Link();
         $link->setHref($linkHref);
-        $link->setRel(array('self', 'models', 'collection'));
+        $link->setRel(['self', 'models', 'collection']);
 
         return $link;
     }
@@ -177,7 +177,7 @@ class ModelsHandler
 
         $link = new Link();
         $link->setHref($linkHref);
-        $link->setRel(array('prev', 'models', 'collection'));
+        $link->setRel(['prev', 'models', 'collection']);
 
         return $link;
     }
@@ -213,7 +213,7 @@ class ModelsHandler
 
         $link = new Link();
         $link->setHref($linkHref);
-        $link->setRel(array('next', 'models', 'collection'));
+        $link->setRel(['next', 'models', 'collection']);
 
         return $link;
     }

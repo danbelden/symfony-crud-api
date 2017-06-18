@@ -9,20 +9,20 @@ class LimitOffsetHelperTest extends TestCase
 {
     public function dataProviderGetPreviousLimit()
     {
-        return array(
-            array(0, 1, 1, null),
-            array(1, 0, 1, null),
-            array(1, 1, 0, null),
-            array(1, 1, 1, 1),
-            array(1, 1, 2, 1),
-            array(2, 1, 1, 1),
-            array(2, 2, 1, 1),
-            array(5, 2, 1, 1),
-            array(2, 2, 2, 2),
-            array(1, 2, 1, 1),
-            array(4, 5, 10, 4),
-            array(5, 3, 10, 3),
-        );
+        return [
+            [0, 1, 1, null],
+            [1, 0, 1, null],
+            [1, 1, 0, null],
+            [1, 1, 1, 1],
+            [1, 1, 2, 1],
+            [2, 1, 1, 1],
+            [2, 2, 1, 1],
+            [5, 2, 1, 1],
+            [2, 2, 2, 2],
+            [1, 2, 1, 1],
+            [4, 5, 10, 4],
+            [5, 3, 10, 3],
+        ];
     }
 
     /**
@@ -42,20 +42,20 @@ class LimitOffsetHelperTest extends TestCase
 
     public function dataProviderGetPreviousOffset()
     {
-        return array(
-            array(0, 1, 1, null),
-            array(1, 0, 1, null),
-            array(1, 1, 0, null),
-            array(1, 1, 1, 0),
-            array(1, 1, 2, 0),
-            array(2, 1, 1, 0),
-            array(2, 2, 1, 0),
-            array(5, 2, 1, 0),
-            array(2, 2, 2, 0),
-            array(1, 2, 1, 0),
-            array(4, 5, 10, 1),
-            array(5, 3, 10, 0),
-        );
+        return [
+            [0, 1, 1, null],
+            [1, 0, 1, null],
+            [1, 1, 0, null],
+            [1, 1, 1, 0],
+            [1, 1, 2, 0],
+            [2, 1, 1, 0],
+            [2, 2, 1, 0],
+            [5, 2, 1, 0],
+            [2, 2, 2, 0],
+            [1, 2, 1, 0],
+            [4, 5, 10, 1],
+            [5, 3, 10, 0],
+        ];
     }
 
     /**
@@ -75,31 +75,31 @@ class LimitOffsetHelperTest extends TestCase
 
     public function dataProviderGetNextLimit()
     {
-        return array(
-            array(0, 1, 1, null),
-            array(1, 0, 1, null),
-            array(1, 1, 0, null),
-            array(1, 1, 1, null),
-            array(1, 1, 2, null),
-            array(1, 1, 3, 1),
-            array(2, 0, 1, null),
-            array(2, 1, 1, null),
-            array(2, 2, 2, null),
-            array(2, 2, 3, null),
-            array(2, 2, 4, null),
-            array(2, 2, 5, 1),
-            array(2, 2, 6, 2),
-            array(1, 2, 1, null),
-            array(1, 2, 2, null),
-            array(1, 2, 3, null),
-            array(1, 2, 4, 1),
-            array(4, 0, 10, 4),
-            array(4, 5, 10, 1),
-            array(5, 3, 10, 2),
-            array(5, 8, 10, null),
-            array(5, 10, 10, null),
-            array(5, 15, 10, null),
-        );
+        return [
+            [0, 1, 1, null],
+            [1, 0, 1, null],
+            [1, 1, 0, null],
+            [1, 1, 1, null],
+            [1, 1, 2, null],
+            [1, 1, 3, 1],
+            [2, 0, 1, null],
+            [2, 1, 1, null],
+            [2, 2, 2, null],
+            [2, 2, 3, null],
+            [2, 2, 4, null],
+            [2, 2, 5, 1],
+            [2, 2, 6, 2],
+            [1, 2, 1, null],
+            [1, 2, 2, null],
+            [1, 2, 3, null],
+            [1, 2, 4, 1],
+            [4, 0, 10, 4],
+            [4, 5, 10, 1],
+            [5, 3, 10, 2],
+            [5, 8, 10, null],
+            [5, 10, 10, null],
+            [5, 15, 10, null],
+        ];
     }
 
     /**
@@ -119,31 +119,31 @@ class LimitOffsetHelperTest extends TestCase
 
     public function dataProviderGetNextOffset()
     {
-        return array(
-            array(0, 1, 1, null),
-            array(1, 0, 1, null),
-            array(1, 1, 0, null),
-            array(1, 1, 1, null),
-            array(1, 1, 2, null),
-            array(1, 1, 3, 2),
-            array(2, 0, 1, null),
-            array(2, 1, 1, null),
-            array(2, 2, 2, null),
-            array(2, 2, 3, null),
-            array(2, 2, 4, null),
-            array(2, 2, 5, 4),
-            array(2, 2, 6, 4),
-            array(1, 2, 1, null),
-            array(1, 2, 2, null),
-            array(1, 2, 3, null),
-            array(1, 2, 4, 3),
-            array(4, 0, 10, 4),
-            array(4, 5, 10, 9),
-            array(5, 3, 10, 8),
-            array(5, 8, 10, null),
-            array(5, 10, 10, null),
-            array(5, 15, 10, null),
-        );
+        return [
+            [0, 1, 1, null],
+            [1, 0, 1, null],
+            [1, 1, 0, null],
+            [1, 1, 1, null],
+            [1, 1, 2, null],
+            [1, 1, 3, 2],
+            [2, 0, 1, null],
+            [2, 1, 1, null],
+            [2, 2, 2, null],
+            [2, 2, 3, null],
+            [2, 2, 4, null],
+            [2, 2, 5, 4],
+            [2, 2, 6, 4],
+            [1, 2, 1, null],
+            [1, 2, 2, null],
+            [1, 2, 3, null],
+            [1, 2, 4, 3],
+            [4, 0, 10, 4],
+            [4, 5, 10, 9],
+            [5, 3, 10, 8],
+            [5, 8, 10, null],
+            [5, 10, 10, null],
+            [5, 15, 10, null],
+        ];
     }
 
     /**
