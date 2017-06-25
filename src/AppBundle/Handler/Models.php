@@ -3,14 +3,14 @@
 namespace AppBundle\Handler;
 
 use AppBundle\Criteria\Model as ModelCriteria;
-use AppBundle\Entity\Model;
+use AppBundle\Entity\Model as ModelEntity;
 use AppBundle\Paginator\LimitOffsetHelper;
 use Siren\Document;
 use Siren\Entity;
 use Siren\Link;
 use Symfony\Component\Routing\Router;
 
-class ModelsHandler
+class Models
 {
     /**
      * @var Router
@@ -40,6 +40,9 @@ class ModelsHandler
         $document = new Document();
         $document->setClass(['models', 'collection']);
 
+        $properties = $this->getProperties($criteria, $count);
+        $document->setProperties($properties);
+
         $entities = $this->getEntities($models);
         $document->setEntities($entities);
 
@@ -47,6 +50,21 @@ class ModelsHandler
         $document->setLinks($links);
 
         return $document;
+    }
+
+    /**
+     * Helper method to convert criteria and result count into a properties array
+     *
+     * @param ModelCriteria $criteria
+     * @param int $count
+     * @return array
+     */
+    private function getProperties(ModelCriteria $criteria, $count)
+    {
+        return [
+            'criteria' => $criteria->toArray(),
+            'totalResults' => $count
+        ];
     }
 
     /**
@@ -60,7 +78,7 @@ class ModelsHandler
         $entities = [];
 
         foreach ($models as $model) {
-            assert($model instanceof Model);
+            assert($model instanceof ModelEntity);
             $entities[] = $this->getEntity($model);
         }
 
@@ -68,12 +86,12 @@ class ModelsHandler
     }
 
     /**
-     * Helper method to create an entity object from a model object
+     * Helper method to create a siren entity object from a model entity object
      *
-     * @param Model $model
+     * @param ModelEntity $model
      * @return Entity
      */
-    private function getEntity(Model $model)
+    private function getEntity(ModelEntity $model)
     {
         $entity = new Entity();
         $entity->setClass(['model']);

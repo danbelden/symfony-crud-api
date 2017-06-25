@@ -4,7 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Criteria\Model as ModelCriteria;
 use AppBundle\Entity\Model;
-use AppBundle\Handler\ModelsHandler;
+use AppBundle\Handler\Models as ModelsHandler;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -72,17 +72,12 @@ class ReadManyController extends Controller
         $modelsHandler  = new ModelsHandler($router);
         $modelsDocument = $modelsHandler->toDocument($criteria, $count, $models);
 
-        $properties = [
-            'criteria'     => $criteria->toArray(),
-            'totalResults' => $count,
-            'secondsTaken' => (float) number_format($tTime, 2)
-        ];
-        $modelsDocument->setProperties($properties);
-
         $documentArray = $modelsDocument->toArray();
         if (empty($documentArray['entities'])) {
             $documentArray['entities'] = [];
         }
+
+        $documentArray['properties']['secondsTaken'] = number_format($tTime, 2);
 
         $jsonResponse = new JsonResponse();
         $jsonResponse->setData($documentArray);

@@ -2,12 +2,12 @@
 
 namespace AppBundle\Handler;
 
-use AppBundle\Entity\Model;
+use AppBundle\Entity\Model as ModelEntity;
 use Siren\Document;
 use Siren\Link;
 use Symfony\Component\Routing\Router;
 
-class ModelHandler
+class Model
 {
     /**
      * @var Router
@@ -27,10 +27,10 @@ class ModelHandler
     /**
      * Method to convert a model object to a siren document
      *
-     * @param Model $model
+     * @param ModelEntity $model
      * @return Document
      */
-    public function toDocument(Model $model)
+    public function toDocument(ModelEntity $model)
     {
         $document = new Document();
         $document->setClass(['model']);
