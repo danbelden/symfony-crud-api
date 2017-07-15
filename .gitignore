@@ -46,3 +46,7 @@
 
 # Backup entities generated with doctrine:generate:entities command
 */Entity/*~
+
+# Operating system junk
+.DS_Store
+
