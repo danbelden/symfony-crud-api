@@ -7,8 +7,8 @@ services:
       - "80:80"
       - "436:436"
     volumes:
-      - ./etc/nginx/sites-available/default:/etc/nginx/sites-available/default
-      - ..:/var/www/html
+      - ./docker/etc/nginx/sites-available/default:/etc/nginx/sites-available/default
+      - .:/var/www/html
     environment:
         - SYMFONY_ENV=dev
     depends_on:
