@@ -39,7 +39,7 @@ Using said annotation file, the swagger UX provides a rendered webpage of the ap
 You can test this using the docker file provided, once running using `docker-compose up` in the root folder, you should be able to reach this documentation on the `/doc` endpoint like this:
 - http://localhost/doc
 
-{SWAGGER DOC IMAGE HERE}
+<img src="https://github.com/danbelden/symfony-crud-api/blob/master/readme/swagger.png" />
 
 The UI is taken from a popular swagger UX template and can be customized to your requirements via the template file here:
 - https://github.com/danbelden/symfony-crud-api/blob/master/src/AppBundle/Resources/views/doc.html.twig
