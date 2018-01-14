@@ -136,9 +136,6 @@ class ModelTest extends TestCase
 
         unset($dataArray['name'], $dataArray['limit'], $dataArray['offset'], $dataArray['orderField'], $dataArray['orderDirection']);
 
-
-
-
         $this->assertEmpty($dataArray);
     }
 }

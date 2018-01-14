@@ -60,9 +60,9 @@ class CriteriaTest extends KernelTestCase
         $this->assertInstanceOf(ModelCriteria::class, $criteria);
         $this->assertSame('test', $criteria->getName());
         $this->assertSame(1, $criteria->getLimit());
-        $this->assertSame(null, $criteria->getOffset());
-        $this->assertSame(null, $criteria->getOrderField());
-        $this->assertSame(null, $criteria->getOrderDirection());
+        $this->assertNull($criteria->getOffset());
+        $this->assertNull($criteria->getOrderField());
+        $this->assertNull($criteria->getOrderDirection());
     }
 
     public function testApplyWithFullValidRequestFilters()
