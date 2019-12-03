@@ -9,7 +9,7 @@ This project is designed to give you the starting point for a Symfony PHP REST/C
 
 The following software dependencies are required to run this project, see the docker image for more clarification:
 
-- PHP >= 5.6
+- PHP >= 7.1
 - MySQL >= 5.6
 
 # Installation
